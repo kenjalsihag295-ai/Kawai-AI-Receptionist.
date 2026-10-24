@@ -4,7 +4,8 @@ name: Build Kawai AI Receptionist APK
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   build:
@@ -25,10 +26,10 @@ jobs:
         with:
           gradle-version: '8.9'
 
-       - name: Set up Android SDK
+      - name: Set up Android SDK
         uses: android-actions/setup-android@v4
         with:
-          packages: 'platform-tools'
+          packages: platform-tools
 
       - name: Build APK
         run: gradle assembleDebug
